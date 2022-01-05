@@ -8,7 +8,7 @@ loggers = {}
 class LogTracker(object):
 
     @classmethod
-    def get_Logger(self, _logger_name, _with_time=False):
+    def get_Logger(self, _logger_name, _with_time=True):
         if loggers.get(_logger_name):
             return loggers.get(_logger_name)
 
@@ -19,7 +19,7 @@ class LogTracker(object):
                 str_format = '[%(levelname)s] %(asctime)s: %(message)s'
 
             else:
-                str_format = '[%(levelname)s] %(message)s'
+                str_format = '[%(levelname)s]: %(message)s'
 
             logging.root.handlers = []
             logging.basicConfig(
